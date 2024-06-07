@@ -59,7 +59,7 @@ export const StepFive = ({ formData, setFormData, setCurrentStep }) => {
                 Nom & prénom
               </dt>
               {formData.students.map((student, index) => (
-                <div className="flex justify-end ">
+                <div key={index} className="flex justify-end ">
                   <dd className="font-medium text-gray-900 py-1 dark:text-white sm:text-end">
                     {student.nom} {student.prenom}
                   </dd>
@@ -80,7 +80,7 @@ export const StepFive = ({ formData, setFormData, setCurrentStep }) => {
               Souscripteur
             </h3>
             {[formData].map((data, index) => (
-              <>
+              <div key={index}>
                 <dl className="sm:flex pb-3 items-center justify-between gap-4">
                   <dt className="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">
                     Nom & prénom
@@ -89,7 +89,7 @@ export const StepFive = ({ formData, setFormData, setCurrentStep }) => {
                     {formData.nom} {formData.prenom}
                   </dd>
                 </dl>
-              </>
+              </div>
             ))}
 
             <div className="flex justify-end mt-4">

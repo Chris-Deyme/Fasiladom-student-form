@@ -66,11 +66,11 @@ export const StepThree = ({ onNext, onBack, formData, setFormData }) => {
             </div>
             <p className="mb-5 text-base font-medium text-gray-900 dark:text-gray-400">
             Vous pourrez répartir vos heures de cours selon vos préférences si vous avez inscrit plusieurs élèves. 
-Ce choix est uniquement informatif à ce stade, le prélèvement ne s'effectuera qu'à partir de la validation de la date du premier cours.
+Ce choix est uniquement informatif à ce stade, le prélèvement ne s&apos;effectuera qu&apos;à partir de la validation de la date du premier cours.
             </p>
             <div className="grid w-full justify-center">
               <div className="flex bg-[#F25C05] rounded-lg">
-            <h3 className="text-2xl font-semibold text-white p-4 text-center">Frais d'adhésion offerts cette semaine !</h3>
+            <h3 className="text-2xl font-semibold text-white p-4 text-center">Frais d&apos;adhésion offerts cette semaine !</h3>
             </div>
             <div className="flex justify-center gap-2 mb-6 mt-2"><input
               type="checkbox"
@@ -122,7 +122,7 @@ Ce choix est uniquement informatif à ce stade, le prélèvement ne s'effectuera
               <ul role="list" className="mb-8 space-y-4 text-left">
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#0072BA] dark:text-[#0072BA]" />
-                  <span>Pas d'engagement</span>
+                  <span>Pas d&apos;engagement</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#0072BA] dark:text-[#0072BA]" />
@@ -130,7 +130,7 @@ Ce choix est uniquement informatif à ce stade, le prélèvement ne s'effectuera
                 </li>
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#0072BA] dark:text-[#0072BA]" />
-                  <span><s>Frais d'inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
+                  <span><s>Frais d&apos;inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#0072BA] dark:text-[#0072BA]" />
@@ -198,7 +198,7 @@ Ce choix est uniquement informatif à ce stade, le prélèvement ne s'effectuera
                 </li>
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#752466] dark:text-[#752466]" />
-                  <span><s>Frais d'inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
+                  <span><s>Frais d&apos;inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#752466] dark:text-[#752466]" />
@@ -275,7 +275,7 @@ Ce choix est uniquement informatif à ce stade, le prélèvement ne s'effectuera
                   </li>
                   <li className="flex items-center space-x-3">
                     <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#F25C05] dark:text-[#F25C05]" />
-                    <span><s>Frais d'inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
+                    <span><s>Frais d&apos;inscriptions : {formData.creditImpot ? 70 : 35}€</s></span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CiCircleCheck className="flex-shrink-0 w-5 h-5 text-[#F25C05] dark:text-[#F25C05]" />
