@@ -28,12 +28,15 @@ export const StepFour = ({
 
   const getPaymentMethods = () => {
     if (formData.creditImpot) {
-      if (formData.formule === "Pack") {
+      if (
+        formData.formule === "Pack" ||
+        formData.formule === "Sans engagement"
+      ) {
         return [
           "Paiement par carte bancaire",
           "Paiement carte bancaire 3 x 4 fois",
-          "Paiement par chèque/CESU",
-          "Paiement par ECESU",
+          "Paiement par chèque bancaire",
+          "Paiement par CESU/E-CESU",
         ];
       } else {
         return [
@@ -77,10 +80,10 @@ export const StepFour = ({
       transition={{ duration: 0.5 }}
     >
       <div className="p-4 bg-white md:w-4/5 lg:w-1/2 xl:w-1/2 w-4/5 mx-auto">
-      <div className="flex w-full justify-center">
-        <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-          Finalisation
-        </h2>
+        <div className="flex w-full justify-center">
+          <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+            Finalisation
+          </h2>
         </div>
         {!formData.creditImpot && (
           <>
@@ -89,9 +92,9 @@ export const StepFour = ({
             </h3>
             <Separator className="mb-8 border-2 border-[#F25C05] bg-[#F25C05]" />
             <p className="mb-8">
-              Pour bénéficier de l&apos;avance immédiate du crédit d&apos;impôt, merci de
-              renseigner vos coordonnées bancaires, nécessaires pour vous
-              affilier au dispositif de l&apos;URSSAF.
+              Pour bénéficier de l&apos;avance immédiate du crédit d&apos;impôt,
+              merci de renseigner vos coordonnées bancaires, nécessaires pour
+              vous affilier au dispositif de l&apos;URSSAF.
             </p>
 
             <div className="grid gap-6 mb-6 md:grid-cols-1">
@@ -406,8 +409,7 @@ export const StepFour = ({
                         </div>
                       </div>
                     </>
-                  ) : method === "Paiement par chèque" ||
-                    method === "Paiement par chèque/CESU" ? (
+                  ) : method === "Paiement par chèque bancaire" ? (
                     <>
                       <form
                         action="#"
@@ -417,8 +419,8 @@ export const StepFour = ({
                           htmlFor="titulaire"
                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >
-                          Merci de nous envoyer par courrier vos chèques ou CESU
-                          à l&apos;adresse :
+                          Merci de nous envoyer par courrier vos chèques
+                          bancaires à l&apos;adresse :
                         </label>
                         <div className="flex font-bold flex-col gap-3">
                           <p>Évidence Cours - Fasiladom </p>{" "}
@@ -432,57 +434,82 @@ export const StepFour = ({
                         </p>
                       </form>
                     </>
-                  ) : method === "Paiement par ECESU" ? (
-                    <div className="p-5 border my-3 rounded-xl">
-                      <p className="flex flex-col gap-4">
-                        <span className="font-bold">
-                          Vous souhaitez régler vos cours en e-CESU, pour se
-                          faire :
-                        </span>
+                  ) : method === "Paiement par CESU/E-CESU" ? (
+                    <>
+                      <form
+                        action="#"
+                        className="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8 mt-4"
+                      >
+                        <label
+                          htmlFor="titulaire"
+                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                          Merci de nous envoyer par courrier vos CESU à
+                          l&apos;adresse :
+                        </label>
+                        <div className="flex font-bold flex-col gap-3">
+                          <p>Évidence Cours - Fasiladom </p>{" "}
+                          <p>5 AV Paul VERLAINE </p>
+                          <p>38100 Grenoble</p>
+                        </div>
+                        <p className="mt-4">
+                          Vous pouvez également contacter le service client :{" "}
+                          <br /> - contact@fasiladom.fr - 09 70 21 20 36 (prix
+                          d&apos;un appel local)
+                        </p>
+                      </form>
 
-                        <p>
-                          Votre compte personnel est automatiquement crédité du
-                          montant distribué par votre entreprise.
-                        </p>
+                      <div className="p-5 border my-3 rounded-xl">
+                        <p className="flex flex-col gap-4">
+                          <span className="font-bold">
+                            Vous souhaitez régler vos cours en e-CESU, pour se
+                            faire :
+                          </span>
 
-                        <p>
-                          1/ Connectez-vous sur le site de l&apos;émetteur du
-                          titre emploi service (SODEXO, Domalin, Edenred,
-                          Domiserve ....)
-                        </p>
+                          <p>
+                            Votre compte personnel est automatiquement crédité
+                            du montant distribué par votre entreprise.
+                          </p>
 
-                        <p>
-                          2/ Choisissez FASILADOM comme prestataire en
-                          saisissant le code NAN : 0048037*7
-                        </p>
+                          <p>
+                            1/ Connectez-vous sur le site de l&apos;émetteur du
+                            titre emploi service (SODEXO, Domalin, Edenred,
+                            Domiserve ....)
+                          </p>
 
-                        <p>
-                          {" "}
-                          3/ Sélectionnez Fasiladom et cliquez sur « ajouter »
-                        </p>
+                          <p>
+                            2/ Choisissez FASILADOM comme prestataire en
+                            saisissant le code NAN : 0048037*7
+                          </p>
 
-                        <p>
-                          {" "}
-                          4/ Cliquez ensuite sur « payer l&apos;intervenant »
+                          <p>
+                            {" "}
+                            3/ Sélectionnez Fasiladom et cliquez sur « ajouter »
+                          </p>
+
+                          <p>
+                            {" "}
+                            4/ Cliquez ensuite sur « payer l&apos;intervenant »
+                          </p>
+                          <p>
+                            {" "}
+                            5/ Dans la zone commentaire, indiquez le montant
+                            déposé et votre nom.
+                          </p>
+                          <p>
+                            {" "}
+                            Le traitement peut prendre jusqu&apos;à 48h00, nous
+                            vous confirmerons leur réception et créditerons
+                            votre compte du nombre d&apos;heures correspondant.
+                          </p>
                         </p>
-                        <p>
-                          {" "}
-                          5/ Dans la zone commentaire, indiquez le montant
-                          déposé et votre nom.
+                        <p className="mt-4">
+                          Vous pouvez également contacter le service client :
+                          <br />- contact@fasiladom.fr - 09 70 21 20 36 (prix
+                          d&apos;un appel local)
                         </p>
-                        <p>
-                          {" "}
-                          Le traitement peut prendre jusqu&apos;à 48h00, nous
-                          vous confirmerons leur réception et créditerons votre
-                          compte du nombre d&apos;heures correspondant.
-                        </p>
-                      </p>
-                      <p className="mt-4">
-                        Vous pouvez également contacter le service client :
-                        <br />- contact@fasiladom.fr - 09 70 21 20 36 (prix d&apos;un
-                        appel local)
-                      </p>
-                    </div>
+                      </div>
+                    </>
                   ) : null}
                 </>
               )}
@@ -511,3 +538,4 @@ export const StepFour = ({
     </motion.div>
   );
 };
+

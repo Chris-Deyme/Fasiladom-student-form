@@ -108,8 +108,8 @@ export const StepFive = ({ formData, setFormData, setCurrentStep }) => {
             <dl className="sm:flex items-center justify-between gap-4">
               Vous avez choisi le forfait suivant:
               <dt className="font-normal mb-1 sm:mb-0 text-gray-500 dark:text-gray-400">
-                {formData.formule === "Pack"
-                  ? "À la demande"
+                {formData.formule === "Sans engagement"
+                  ? "À la carte"
                   : formData.formule}
                 <br />
                 {formData.parHeure}€/heure
